@@ -4,16 +4,19 @@ pipeline{
         maven 'Maven 3.6.3'
     }
     stages{
-        stage('info'){
+        stage('Info & clean'){
             steps{
                 echo 'Group 4'
                 sh 'java --version'
+                sh 'mvn --version'
                 sh 'mvn clean compile'
             }
         }
-        stage('Test'){
+        stage('Tests'){
             steps{
                 sh 'mvn test'
+                sh 'mvn failsafe:integration-test'
+                sh 'mvn verify'
             }
         }
         stage('Build'){
@@ -22,14 +25,9 @@ pipeline{
                 sh 'docker build -t jlissman/javaverktygprojekt:souter .'
             }
         }
-        stage('LoginTest'){
-            steps {
-                sh 'docker login -u jlissman -p losenordforprojekt11'
-            }
-        }
-
         stage('Push'){
             steps{
+                sh 'docker login -u jlissman -p losenordforprojekt11'
                 sh 'docker push jlissman/javaverktygprojekt:souter'
             }
 
