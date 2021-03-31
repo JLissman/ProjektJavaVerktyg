@@ -10,7 +10,6 @@ pipeline{
                 sh 'java --version'
                 sh 'mvn --version'
                 sh 'mvn clean compile'
-
             }
         }
         stage('Tests'){
