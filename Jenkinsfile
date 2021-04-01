@@ -34,6 +34,7 @@ pipeline{
                     sh 'docker push jlissman/javaverktygprojekt:souter'
                 }
 
+
             }
 
         }
