@@ -29,7 +29,7 @@ pipeline{
             steps{
                 echo 'before cred'
                 withCredentials([
-                        usernamePassword(credentialsId : 'dockerhubUser', usernameVariable : USER, passwordVariable : PASS)
+                        usernamePassword(credentialsId : 'dockerhubUser', usernameVariable : 'USER', passwordVariable : 'PASS')
                 ]){
                     echo 'during cred'
                     echo '$USER'
