@@ -28,7 +28,7 @@ pipeline{
         stage('Push'){
             steps{
                 withCredentials([usernamePassword(credentials : 'dockerhubUser', usernameVariable : USER, passwordVariable : PASS)]){
-                    echo ${USER}
+                    echo "${USER}"
                     //sh 'docker login -u ${USER} -p ${PASS}'
                     //sh 'docker push jlissman/javaverktygprojekt:souter'
                 }
