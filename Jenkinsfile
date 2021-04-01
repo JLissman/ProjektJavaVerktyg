@@ -27,11 +27,8 @@ pipeline{
         }
         stage('Push'){
             steps{
-                withCredentials([usernamePassword(creds : "dockerhubUser", usernameVariable : USER, passwordVariable : PASS)]){
-                    sh 'docker login -u ${USER} -p${PASS}'
-                    sh 'docker push jlissman/javaverktygprojekt:souter'
-                }
-
+                sh 'docker login -u jlissman -p losenordforprojekt11'
+                sh 'docker push jlissman/javaverktygprojekt:souter'
             }
 
         }
