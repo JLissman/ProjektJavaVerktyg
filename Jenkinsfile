@@ -33,9 +33,8 @@ pipeline{
                     sh 'docker login -u $USER -p $PASS'
                     sh 'docker push jlissman/javaverktygprojekt:souter'
                 }
-                echo 'after creds'
-            }
 
+            }
 
         }
     }
