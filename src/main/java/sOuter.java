@@ -7,5 +7,7 @@ public class sOuter {
     public static void whoIsJenkins(){
         String hejString = CharMatcher.whitespace().trimFrom("          Leeeeeroy JEEEEENKINS    ");
         System.out.println(hejString);
+
+
     }
 }
