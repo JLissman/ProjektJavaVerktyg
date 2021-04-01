@@ -27,14 +27,11 @@ pipeline{
         }
         stage('Push'){
             steps{
-                echo 'before cred'
                 withCredentials([
                         usernamePassword(credentialsId : 'dockerhubUser', usernameVariable : 'USER', passwordVariable : 'PASS')
                 ]){
-                    echo 'during cred'
-                    echo '$USER'
-                    //sh 'docker login -u $USER} -p ${PASS}'
-                    //sh 'docker push jlissman/javaverktygprojekt:souter'
+                    sh 'docker login -u $USER -p $PASS'
+                    sh 'docker push jlissman/javaverktygprojekt:souter'
                 }
                 echo 'after creds'
             }
