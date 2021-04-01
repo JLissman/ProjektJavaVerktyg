@@ -30,6 +30,7 @@ pipeline{
                 sh 'docker login -u jlissman -p losenordforprojekt11'
                 sh 'docker push jlissman/javaverktygprojekt:souter'
             }
+
         }
     }
 }
